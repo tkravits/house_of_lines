@@ -13,7 +13,7 @@
 //     }).listen(8000);
 // });
 // Declare static folder to be served. It contains the JavaScript code, images, CSS, etc.
-var express = require('express')
+import express from 'express';
 var app = express()
 
 //setting middleware

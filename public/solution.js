@@ -5,7 +5,7 @@ import eulerianPath from './eulerian-path/eulerianPath.js';
 
 
 function findEulerianPathInNotEulerianGraph() {
-
+    const start = performance.now();
     const vertexA = new GraphVertex('A');
     const vertexB = new GraphVertex('B');
     const vertexC = new GraphVertex('C');
@@ -13,36 +13,44 @@ function findEulerianPathInNotEulerianGraph() {
     const vertexE = new GraphVertex('E');
     const vertexF = new GraphVertex('F');
     const vertexG = new GraphVertex('G');
+    const vertexH = new GraphVertex('H');
 
     const edgeAB = new GraphEdge(vertexA, vertexB);
-    const edgeAE = new GraphEdge(vertexA, vertexE);
-    const edgeAF = new GraphEdge(vertexA, vertexF);
-    const edgeAG = new GraphEdge(vertexA, vertexG);
-    const edgeGF = new GraphEdge(vertexG, vertexF);
-    const edgeBE = new GraphEdge(vertexB, vertexE);
-    const edgeEB = new GraphEdge(vertexE, vertexB);
-    const edgeBC = new GraphEdge(vertexB, vertexC);
-    const edgeED = new GraphEdge(vertexE, vertexD);
-    const edgeCD = new GraphEdge(vertexC, vertexD);
+    const edgeAC = new GraphEdge(vertexA, vertexC);
+    const edgeBD = new GraphEdge(vertexB, vertexD);
+    const edgeDC = new GraphEdge(vertexD, vertexC);
+    const edgeCE = new GraphEdge(vertexC, vertexE);
+    const edgeEF = new GraphEdge(vertexE, vertexF);
+    const edgeFH = new GraphEdge(vertexF, vertexH);
+    const edgeFG = new GraphEdge(vertexF, vertexG);
+    const edgeHG = new GraphEdge(vertexH, vertexG);
 
     const graph = new Graph();
 
     graph
       .addEdge(edgeAB)
-      .addEdge(edgeAE)
-      .addEdge(edgeAF)
-      .addEdge(edgeAG)
-      .addEdge(edgeGF)
-      .addEdge(edgeBE)
-      .addEdge(edgeEB)
-      .addEdge(edgeBC)
-      .addEdge(edgeED)
-      .addEdge(edgeCD);
+      .addEdge(edgeAC)
+      .addEdge(edgeBD)
+      .addEdge(edgeDC)
+      .addEdge(edgeCE)
+      .addEdge(edgeEF)
+      .addEdge(edgeFH)
+      .addEdge(edgeFG)
+      .addEdge(edgeHG);
 
     const graphEdgesCount = graph.getAllEdges().length;
 
     const eulerianPathSet = eulerianPath(graph);
-    console.log(eulerianPathSet);
+    const duration = performance.now() - start;
+    console.log(`Duration: ${duration}ms`);
+    return [eulerianPathSet, duration];
   };
 
-findEulerianPathInNotEulerianGraph();
+
+let firstSolution = document.getElementById("firstSolution")
+let timeFirstSolution = document.getElementById("timeFirstSolution")
+let secondSolution = document.getElementById("secondSolution")
+const [firstResult, timeResult] = findEulerianPathInNotEulerianGraph();
+firstSolution.textContent = `${firstResult}`;
+timeFirstSolution.textContent = `Time: ${timeResult.toFixed(2)} ms`;
+console.log(timeResult);
