@@ -9,6 +9,8 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
     res.sendFile(__dirname + '/public/fleury.html');
     res.sendFile(__dirname + '/public/hierholzer.html');
+    res.sendFile(__dirname + '/public/img/graph1.png');
+    res.sendFile(__dirname + '/public/img/graph2.png');
 })
 
 var server = app.listen(3000);
