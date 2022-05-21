@@ -53,15 +53,15 @@
   <p>
     The Hierholzer's Algorithm is a graph traversal algorithm that can find a
     Euler path or Hamiltonian cycle in a graph. It will attempt one traversal and will remove
-    bridges when encountered onto a stack. If not all vertices are visited, it will "pop" what has
+    bridges when encountered, onto a stack. If not all vertices are visited, it will "pop" what has
     been traversed, save it, and start a new path. Combine the paths from the last vertices to find a complete Euler path</p>
   <li>Initialize two stacks, one "temp" path, one "final" path</li>
-  <li>Start at a vertices with 2 odd vertices, otherwise start at 0 odd vertices</li>
+  <li>Start at a vertex with 2 odd vertices, otherwise start at 0 odd vertices</li>
   <li>Traverse until either all edges are visited (save to the final path and return the path)</li>
-  <li>Else, push what you have to the final path and start at any random vertices already encountered</li>
-  <li>Once you find a vertices that has a possible edge to traverse, begin</li>
+  <li>Else, push what you have to the final path and start at any random vertex already encountered</li>
+  <li>Once you find a vertex that has a possible edge to traverse, begin</li>
   <li>Traverse until no vertices are left (all have been popped onto the temp)</li>
-  <li>Assume graph is connected, repeat the previous path and connect to fine the Euler path</li>
+  <li>Assume graph is connected, repeat the previous path and connect to find the Euler path</li>
   <p><b>Complexity</b>: O(n) -> Linear Time</p>
 </body>
 

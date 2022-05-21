@@ -14,3 +14,4 @@ app.get('/', function (req, res) {
 })
 
 var server = app.listen(3000);
+console.log(`Server running at http://localhost:${server.address().port}/`);
